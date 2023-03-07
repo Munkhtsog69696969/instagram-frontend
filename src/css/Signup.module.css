@@ -1,48 +1,75 @@
-
 .container{
-    border: 2px solid red;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../assets/images/signup-background.jpg");
+    background-image: url("https://static.vecteezy.com/system/resources/previews/005/942/297/original/retro-abstract-background-vintage-geometric-stripes-design-simple-colorful-lines-classic-grunge-wallpaper-vector.jpg");
     background-repeat: no-repeat;
+    background-size:contain ;
     background-size: cover;
 }
 
-.form{
-    width: 40%;
+.signupContainer{
+    width: 50%;
     height: 60%;
-    background-color: white;
-    border-radius: 45px;
+    background-color: black;
+    border-radius:30px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    opacity: 0.5;
     flex-direction: column;
+    align-items: center;
+}
+
+.bigImage{
+    width: 40%;
+    height: 60%;
 }
 
 .bigText{
-    font-size: 35px;
-    font-weight: bold;
+    color: white;
+    font-size: 340%;
+    font-weight: 650;
 }
 
 input{
-    padding: 15px;
-    height: 1%;
-    margin: 2%;
     width: 50%;
-    border-radius: 10px;
-    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 15px;
+    background: transparent;
+    border: 1px solid white;
+    margin: 2%;
+    border: 1px solid white;
+    color: white;
 }
 
-
 button{
-    padding: 10px;
-    width: 20%;
-    font-size: 20px;
-    background-color: rgb(130, 46, 234);
+    width: 30%;
+    padding: 1%;
+    border-radius: 15px;
     color: white;
-    font-weight: bold;
+    background-color: rgb(126, 126, 57);
     border: none;
-    border-radius: 30px;
+    border: 5px solid rgb(209, 209, 60);
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.link{
+    margin: 2%;
+    color: rgb(236, 236, 58);
+}
+
+@media screen and (max-width:800px){
+    .signupContainer{
+        width: 80%;
+    }
+
+    .bigText{
+        font-size: 250%;
+    }
+
+    input{
+        width:70%;
+    }
 }
