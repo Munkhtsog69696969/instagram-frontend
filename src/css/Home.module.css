@@ -2,6 +2,63 @@
 .container{
     height: 100vh;
     display: flex;
+}
+
+.leftSide{
+    border: 1px solid rgb(202, 202, 202) ;
+    width: 30%;
+    display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.innerLeftSide{
+    border: 1px solid black;
+    width: 80%;
+    height: 100%;
+}
+
+.logo1Container{
+    border: 1px solid green;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo1{
+    width: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("https://www.edigitalagency.com.au/wp-content/uploads/instagram-logo-text-black-png.png");
+}
+
+.leftLists{
+    border: 1px solid red;
+    height: 70%;
+}
+
+.leftListElement{
+    border: 1px solid blue;
+    height: 8%;
+    display: flex;
+    align-items: center;
+    padding: 5%;
+}
+
+.iconsCurrent{
+    font-size: 30px;
+    margin-right: 3%;
+}
+
+.leftSideTexts{
+    font-weight: bold;
+}
+
+@media only screen and (width<=800px) {
+    /* .logo1{
+        background-image: url("https://www.pngfind.com/pngs/m/75-755741_png-instagram-logo-black-outline-transparent-png.png"); 
+        width: 50%;
+        background-size: cover;
+    } */
 }

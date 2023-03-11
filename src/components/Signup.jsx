@@ -8,16 +8,23 @@ export const Signup=()=>{
     const email=useRef("");
     const username=useRef("");
     const password=useRef("");
+    const confirmPassword=useRef();
     const navigate=useNavigate();
 
     async function Create(){
-        if(email.current.value!=="" && username.current.value!=="" && password.current.value!==""){
-            await client.post("/signup",{email:email.current.value , password:password.current.value , username:username.current.value})
+        const emailInput=email.current.value;
+        const usernameInput=username.current.value;
+        const passwordInput=password.current.value;
+        const confirmPasswordInput=confirmPassword.current.value;
+
+        await client.post("/signup",{email:emailInput , username:usernameInput , password:passwordInput , confirmPassword:confirmPasswordInput})
             .then(async(res)=>{
-                console.log(res.data)
-                navigate("/login")
+                if(res){
+                    navigate("/login")
+                }
+            }).catch((err)=>{
+                console.log(err);
             })
-        }
     }
 
     return(
@@ -30,6 +37,8 @@ export const Signup=()=>{
                 <input placeholder="Enter username..." ref={username}/>
 
                 <input placeholder="Enter password..." ref={password}/>
+
+                <input placeholder="Confirm password..." ref={confirmPassword}/>
 
                 <button onClick={Create}>Create</button>
 
