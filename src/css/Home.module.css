@@ -40,20 +40,128 @@
 
 .leftListElement{
     border: 1px solid blue;
-    height: 8%;
+    height: 6%;
     display: flex;
     align-items: center;
     padding: 5%;
 }
 
 .iconsCurrent{
-    font-size: 30px;
+    font-size: 25px;
     margin-right: 3%;
 }
 
 .leftSideTexts{
-    font-weight: bold;
+    /* font-weight: bold; */
 }
+
+.createPostContainerVisible{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.6);
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+
+.createPostContainerInvisible{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0);
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+.createPostVisible{
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    border-radius: 30px;
+    opacity: 1;
+    z-index: 2;
+}
+
+.createPostInvisible{
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    border-radius: 30px;
+    opacity: 0;
+    z-index: -2;
+}
+
+.createPostImageContainer{
+    /* border: 1px solid green; */
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.createPostImage{
+    width: 40%;
+    height: auto;
+}
+
+.uploadImgInput{
+    
+}
+
+.uploadImgBtn{
+    background-color: rgb(95, 95, 240);
+    font-size: 20px;
+    border: none;
+    width: 20%;
+    font-weight: 500;
+}
+
+.uploadedImagesContainer{
+    /* border: 1px solid red; */
+    height: 21%;
+    overflow-y: scroll;
+}
+
+.uploadedImage{
+    height: 100%;
+    width: auto;
+    margin: 1%;
+}
+
+.exitCreatePostInvisible{
+    position: fixed;
+    opacity: 0;
+    color: white;
+    font-size: 180%;
+    right: 2%;
+    top: 2%;
+    z-index: -2;
+}
+
+.exitCreatePostVisible{
+    position: fixed;
+    opacity: 1;
+    color: white;
+    font-size: 180%;
+    right: 2%;
+    top: 2%;
+    z-index: 2;
+}
+
+.createPostNextContainerVisible{
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    border-radius: 30px;
+    opacity: 1;
+    z-index: 2;
+}
+
 
 @media only screen and (width<=800px) {
     /* .logo1{

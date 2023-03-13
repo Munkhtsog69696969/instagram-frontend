@@ -10,7 +10,7 @@
 }
 
 .signupContainer{
-    width: 50%;
+    width: 40%;
     height: 60%;
     background-color: black;
     border-radius:30px;
@@ -58,6 +58,41 @@ button{
 .link{
     margin: 2%;
     color: rgb(236, 236, 58);
+}
+
+.inputContainer{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.errorMessage{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: grey;
+    width: 10%;
+    height: 70%;
+    right: 12%;
+    top: 15%;
+    background-color: transparent;
+}
+
+.errorIconVisible{
+    color: rgb(249, 0, 0);
+    font-size: 150%;
+    opacity: 1;
+}
+
+.errorIconInvisible{
+    opacity: 0;
+}
+
+.errorText{
+    color: white;
+    margin: 2%;
 }
 
 @media screen and (max-width:800px){

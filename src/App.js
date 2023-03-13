@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Signup } from './components/Signup';
 import { Login } from './components/Login';
-import { Home } from './components/Home';
+import { Home } from './components/Home'; 
+import { CreatePost } from './components/CreatePost';
 
 function App() {
   return (

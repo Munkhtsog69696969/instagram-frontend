@@ -1,8 +1,9 @@
 import styles from "../css/Signup.module.css"
 import { Link } from "react-router-dom"
 import { client } from "../config/client"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router"
+import {BiErrorAlt} from "react-icons/bi"
 
 export const Signup=()=>{
     const email=useRef("");
@@ -10,6 +11,12 @@ export const Signup=()=>{
     const password=useRef("");
     const confirmPassword=useRef();
     const navigate=useNavigate();
+    const [errorMessage,setErrorMessage]=useState();
+
+    const [errEmail,setErrEmail]=useState(false);
+    const [errUsername,setErrUsername]=useState(false);
+    const [errPassword,setErrPassword]=useState(false);
+    const [errConfirmPassword,setErrConfirmPassword]=useState(false);
 
     async function Create(){
         const emailInput=email.current.value;
@@ -23,22 +30,77 @@ export const Signup=()=>{
                     navigate("/login")
                 }
             }).catch((err)=>{
-                console.log(err);
+                // console.log(err.response.data);
+                setErrorMessage(err.response.data);
             })
     }
+    console.log(errorMessage)
+
+    useEffect(()=>{
+        if(errorMessage=="Invalid email" || errorMessage=="Email in use"){
+            setErrEmail(true);
+        }else{
+            setErrEmail(false)
+        }
+
+        if(errorMessage=="Username must be longer than 2 characters"){
+            setErrUsername(true);
+        }else{
+            setErrUsername(false);
+        }
+
+        if(errorMessage=="Password must be longer than 6 characters"){
+            setErrPassword(true);
+        }else{
+            setErrPassword(false)
+        }
+
+        if(errorMessage=="Passwords do not match"){
+            setErrConfirmPassword(true)
+        }else{
+            setErrConfirmPassword(false)
+        }
+    },[errorMessage])
+
+    // console.log("email:",errEmail);
+    // console.log("username:",errUsername)
+    // console.log("password:",errPassword)
+    // console.log("confirmPassword:",errConfirmPassword)
 
     return(
         <div className={styles.container}>
             <div className={styles.signupContainer}>
                 <div className={styles.bigText}>Sign up</div>
 
-                <input placeholder="Enter email..." ref={email}/>
+                <div className={styles.inputContainer}>
+                    <input placeholder="Enter email..." ref={email}/>
+                    <div className={styles.errorMessage}>
+                        <BiErrorAlt className={errEmail ? styles.errorIconVisible : styles.errorIconInvisible}></BiErrorAlt>
+                    </div>
+                </div>
+                
+                <div className={styles.inputContainer}>
+                    <input placeholder="Enter username..." ref={username}/>
+                    <div className={styles.errorMessage}>
+                        <BiErrorAlt className={errUsername ? styles.errorIconVisible : styles.errorIconInvisible}></BiErrorAlt>
+                    </div>
+                </div>
 
-                <input placeholder="Enter username..." ref={username}/>
+                <div className={styles.inputContainer}>
+                    <input placeholder="Enter password..." ref={password}/>
+                    <div className={styles.errorMessage}>
+                        <BiErrorAlt className={errPassword ? styles.errorIconVisible : styles.errorIconInvisible}></BiErrorAlt>
+                    </div>
+                </div>
 
-                <input placeholder="Enter password..." ref={password}/>
+                <div className={styles.inputContainer}>
+                    <input placeholder="Confirm password..." ref={confirmPassword}/>
+                    <div className={styles.errorMessage}>
+                        <BiErrorAlt className={errConfirmPassword ? styles.errorIconVisible : styles.errorIconInvisible}></BiErrorAlt>
+                    </div>
+                </div>
 
-                <input placeholder="Confirm password..." ref={confirmPassword}/>
+                <div className={styles.errorText}>{errorMessage}</div>
 
                 <button onClick={Create}>Create</button>
 
